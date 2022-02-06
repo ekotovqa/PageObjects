@@ -1,5 +1,8 @@
 ﻿using Locales;
 using OpenQA.Selenium;
+using OpenQA.Selenium.Support.UI;
+using SeleniumExtras.WaitHelpers;
+using Locales;
 
 namespace PageObjects
 {
@@ -14,6 +17,9 @@ namespace PageObjects
 
         public AllJobsPage OpenAllJobs()
         {
+            ///пример использования явного ожидания
+            WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(5));
+            wait.Until(ExpectedConditions.ElementExists(BtnViewJobs));
             driver.FindElement(BtnViewJobs).Click();
             return new AllJobsPage(driver, Localization);
         }
