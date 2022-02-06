@@ -19,8 +19,7 @@ namespace PageObjects
         {
             ///пример использования явного ожидания
             WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(5));
-            wait.Until(ExpectedConditions.ElementExists(BtnViewJobs));
-            driver.FindElement(BtnViewJobs).Click();
+            wait.Until(ExpectedConditions.ElementExists(BtnViewJobs)).Click();
             return new AllJobsPage(driver, Localization);
         }
 
